@@ -14,7 +14,7 @@ class DetailApprovalActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_RELEASE_ORDER = "release_order"
-//        const val EXTRA_LINE = "line_extra"
+        const val EXTRA_LINE = "line_extra"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
