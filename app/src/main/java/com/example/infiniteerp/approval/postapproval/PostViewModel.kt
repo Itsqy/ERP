@@ -1,6 +1,7 @@
 package com.example.infiniteerp.approval.postapproval
 
 import android.util.Log
+import android.widget.Toast
 import com.example.infiniteerp.data.remote.retrofit.ApiConfig
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -15,11 +16,6 @@ class PostViewModel(var postActivity: PostModalActivtiy) {
     fun addPost(id: String) {
         val jsonObject = JSONObject()
         val jsonArray = JSONArray()
-
-//
-
-
-        var sss = "EF429B42B4604902AD9C22D7159928A8"
 
         jsonObject.put("DocRoutingStepId", null)
         jsonObject.put("recordIdList", jsonArray.put(id))
@@ -41,6 +37,7 @@ class PostViewModel(var postActivity: PostModalActivtiy) {
                     if (response.isSuccessful) {
                         val body = response.body()
                         Log.d("TAG", "onResponse: $body")
+                        Toast.makeText(postActivity, "Row is Updated ", Toast.LENGTH_SHORT).show()
 
                     }
                 }

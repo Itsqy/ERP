@@ -22,9 +22,9 @@ interface ApiService {
     fun getAllOrderDraft(
         @Header("Username") username: String = "demo",
         @Header("Password") password: String = "demo",
-        @Query("_where") docStatus: String,
-        @Query("_where") processed: String,
-    ): Call<PurchaseOrderResponse>
+        @Query("_where") params: String,
+
+        ): Call<PurchaseOrderResponse>
 
     @GET("org.openbravo.service.json.jsonrest/Order")
     fun getAllOrderRelease(

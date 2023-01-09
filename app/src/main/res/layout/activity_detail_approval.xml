@@ -146,24 +146,22 @@
         android:id="@+id/bn_detail"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Line"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
         android:background="@color/primaryColor"
+        android:text="Go to Line"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_layout" />
+        app:layout_constraintTop_toBottomOf="@id/bn_approve" />
 
     <Button
         android:id="@+id/bn_approve"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Approve"
+        android:layout_marginTop="20dp"
         android:background="@color/primaryColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bn_detail" />
-
-
-
-
+        android:text="Approve"
+        app:layout_constraintEnd_toEndOf="@id/bn_detail"
+        app:layout_constraintStart_toStartOf="@id/bn_detail"
+        app:layout_constraintTop_toBottomOf="@id/main_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

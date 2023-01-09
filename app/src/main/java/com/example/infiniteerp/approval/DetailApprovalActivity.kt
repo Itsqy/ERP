@@ -26,6 +26,7 @@ class DetailApprovalActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
         setSupportActionBar(binding.tbApproval)
+
         showDetail()
 
 
@@ -45,7 +46,8 @@ class DetailApprovalActivity : AppCompatActivity() {
             binding.tvDeliveryDate.text = releaseOrder.scheduledDeliveryDate
             binding.tvTotalNet.text = "Rp. $netAmount"
             binding.tvDocStatus.text = releaseOrder.documentStatus
-            binding.bnDetail.text = releaseOrder.id
+
+
             binding.bnDetail.setOnClickListener {
                 val intent = Intent(this, LineActivity::class.java)
                 intent.putExtra("idLine", releaseOrder)

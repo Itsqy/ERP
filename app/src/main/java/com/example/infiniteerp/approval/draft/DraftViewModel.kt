@@ -21,7 +21,10 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
     fun showListRelease(docStatus: String, posted: Boolean) {
         _isLoading.value = true
         ApiConfig.getApiServiceHeader()
-            .getAllOrderDraft("demo", "demo", "documentStatus='$docStatus'", "processed=$posted")
+            .getAllOrderDraft(
+                "demo",
+                "demo",
+                "salesTransaction=$posted and documentStatus='$docStatus'" )
             .enqueue(object : Callback<PurchaseOrderResponse> {
                 override fun onResponse(
                     call: Call<PurchaseOrderResponse>,
