@@ -21,9 +21,15 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun showListRelease(docStatus:String) {
+    fun showListRelease(docStatus: String, posted: Boolean) {
         _isLoading.value = true
-        ApiConfig.getApiServiceHeader().getAllOrderRelease("demo", "demo","documentStatus='$docStatus'")
+        ApiConfig.getApiServiceHeader()
+            .getAllOrderRelease(
+                "demo",
+                "demo",
+                "documentStatus='$docStatus'",
+                "processed= $posted"
+            )
             .enqueue(object : Callback<PurchaseOrderResponse> {
                 override fun onResponse(
                     call: Call<PurchaseOrderResponse>,

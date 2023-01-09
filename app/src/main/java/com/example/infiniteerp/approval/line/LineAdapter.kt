@@ -37,7 +37,7 @@ class LineAdapter(val dataHeader: List<ListOrderLine>, val context: Context) :
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailLineActivity::class.java)
-            intent.putExtra("id", dataHeader?.get(position))
+            intent.putExtra("idLine", dataHeader?.get(position))
             context.startActivity(intent)
         }
 

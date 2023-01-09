@@ -33,8 +33,11 @@ class LineViewModel(var lineActivity: LineActivity) : ViewModel() {
 
                         val responseBody = response.body()
                         if (responseBody != null) {
-                            lineActivity?.setListOrderLine(responseBody?.response?.data)
-
+                            if (responseBody.response.data.isNotEmpty()) {
+                                lineActivity.setListOrderLine(responseBody.response.data)
+                            } else {
+                                lineActivity.showEmpty()
+                            }
                         }
                     } else {
                         _isLoading.value = false

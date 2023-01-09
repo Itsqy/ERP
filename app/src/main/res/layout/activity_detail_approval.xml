@@ -144,11 +144,26 @@
 
     <Button
         android:id="@+id/bn_detail"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Line"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/primaryColor"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_layout" />
+
+    <Button
+        android:id="@+id/bn_approve"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Approve"
+        android:background="@color/primaryColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bn_detail" />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

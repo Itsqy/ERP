@@ -31,12 +31,13 @@ class DraftFragment : Fragment() {
 
 
         draftViewModel = DraftViewModel(this)
-        draftViewModel.showListRelease("DR")
 
+        draftViewModel.showListRelease("DR", false)
         showLoading()
 
 
     }
+
 
     fun showLoading() {
         draftViewModel.isLoading.observe(viewLifecycleOwner) {

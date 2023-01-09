@@ -31,7 +31,7 @@ class ReleaseFragment : Fragment() {
 
 
         releaseViewModel = ReleaseViewModel(this)
-        releaseViewModel.showListRelease("CO")
+        releaseViewModel.showListRelease("CO", false)
         showLoading()
 
 

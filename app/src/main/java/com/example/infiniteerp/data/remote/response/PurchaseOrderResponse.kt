@@ -51,6 +51,12 @@ data class ListOrder(
 
     @field:SerializedName("grandTotalAmount")
     val grandTotalAmount: String,
+
+    @field:SerializedName("posted")
+    val posted: String,
+
+    @field:SerializedName("processed")
+    val processed: String,
 ) : Parcelable
 
 

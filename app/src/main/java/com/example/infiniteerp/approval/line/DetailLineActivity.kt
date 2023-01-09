@@ -20,9 +20,9 @@ class DetailLineActivity : AppCompatActivity() {
 
     private fun showDetail() {
 
-        val idHeader = intent.getParcelableExtra<ListOrderLine>("id")
+        val idHeader = intent.getParcelableExtra<ListOrderLine>("idLine")
         if (idHeader != null) {
-            binding.tbLine.title = idHeader.lineNo
+            binding.tbLine.title = "Detail Line ${idHeader.lineNo}"
             val netAmount = idHeader.lineNetAmount
             binding.tvLine.text = idHeader.lineNo
             binding.tvProduct.text = idHeader.product

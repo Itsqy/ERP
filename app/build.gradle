@@ -17,7 +17,7 @@ android {
 
         // base url
         buildConfigField "String", "API_URL", '"https://app-sg1.infinite-erp.co.id/api/users/"'
-        buildConfigField "String", "API_URL_RELEASE", '"https://my.infinite-erp.co.id/infinite/org.openbravo.service.json.jsonrest/"'
+        buildConfigField "String", "API_URL_RELEASE", '"https://my.infinite-erp.co.id/infinite/"'
     }
 
     buildTypes {

@@ -2,6 +2,7 @@ package com.example.infiniteerp.approval.line
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.infiniteerp.data.remote.response.ListOrder
@@ -22,16 +23,28 @@ class LineActivity : AppCompatActivity() {
         binding = ActivityLineBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
         setSupportActionBar(binding.tbLine)
+
+
         binding.tbLine.title = "Lines"
-        val idHeader =
-            intent.getParcelableExtra<ListOrder>("idLine")
+        val idHeader = intent.getParcelableExtra<ListOrder>("idLine")
         lineViewModel = LineViewModel(this)
         if (idHeader != null) {
+
             lineViewModel.showListLine(idHeader.id)
+
         }
 
+        showLoading()
+
+
+
+
+    }
+
+    fun showEmpty() {
+        binding.rvLine.visibility = View.GONE
+        binding.tvEmpty.visibility = View.VISIBLE
     }
 
 
@@ -44,11 +57,16 @@ class LineActivity : AppCompatActivity() {
             rvLine.adapter = adapter
         }
     }
+
     fun showLoading() {
         lineViewModel.isLoading.observe(this) {
             binding?.apply {
                 if (it) {
-
+                    pbLine.visibility = View.VISIBLE
+                    rvLine.visibility = View.INVISIBLE
+                } else {
+                    pbLine.visibility = View.GONE
+                    rvLine.visibility = View.VISIBLE
                 }
             }
         }
