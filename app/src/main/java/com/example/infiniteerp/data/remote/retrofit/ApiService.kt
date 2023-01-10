@@ -30,8 +30,7 @@ interface ApiService {
     fun getAllOrderRelease(
         @Header("Username") username: String = "demo",
         @Header("Password") password: String = "demo",
-        @Query("_where") docStatus: String,
-        @Query("_where") processed: String,
+        @Query("_where") params: String,
     ): Call<PurchaseOrderResponse>
 
     @GET("org.openbravo.service.json.jsonrest/OrderLine?")

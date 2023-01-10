@@ -40,7 +40,7 @@ class PostModalActivtiy : AppCompatActivity() {
 
 
 
-        postViewModel = PostViewModel(this)
+//        postViewModel = PostViewModel(this)
 
 
         val languages = resources.getStringArray(R.array.language)

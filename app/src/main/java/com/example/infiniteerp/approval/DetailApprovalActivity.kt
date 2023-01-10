@@ -4,20 +4,17 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.infiniteerp.approval.line.LineActivity
-import com.example.infiniteerp.approval.postapproval.PostModalActivtiy
+import com.example.infiniteerp.approval.postapproval.PostViewModel
 import com.example.infiniteerp.data.remote.response.ListOrder
 import com.example.infiniteerp.databinding.ActivityDetailApprovalBinding
 
 
 class DetailApprovalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailApprovalBinding
-
-    companion object {
-        const val EXTRA_RELEASE_ORDER = "release_order"
-        const val EXTRA_LINE = "line_extra"
-    }
+    private lateinit var postViewModel: PostViewModel
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +23,8 @@ class DetailApprovalActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
         setSupportActionBar(binding.tbApproval)
+
+
 
         showDetail()
 
@@ -56,13 +55,24 @@ class DetailApprovalActivity : AppCompatActivity() {
 
             binding.bnApprove.setOnClickListener {
 
-                val intent = Intent(this, PostModalActivtiy::class.java)
-                intent.putExtra("popuptitle", "Process Request")
-                intent.putExtra("popuptext", "Action :")
-                intent.putExtra("popupbtn", "OK")
-                intent.putExtra("darkstatusbar", false)
-                intent.putExtra("idheader", releaseOrder)
-                startActivity(intent)
+//                val intent = Intent(this, PostModalActivtiy::class.java)
+//                intent.putExtra("popuptitle", "Process Request")
+//                intent.putExtra("popuptext", "Action :")
+//                intent.putExtra("popupbtn", "OK")
+//                intent.putExtra("darkstatusbar", false)
+//                intent.putExtra("idheader", releaseOrder)
+//                startActivity(intent)
+
+                postViewModel = PostViewModel(this)
+                if (releaseOrder != null) {
+                    if (releaseOrder.grandTotalAmount != "0") {
+                        postViewModel.addPost(releaseOrder.id)
+                        Toast.makeText(this, "1 row updated complete", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Header ini tidak memiliki Lines ", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
             }
 
 

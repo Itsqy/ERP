@@ -2,6 +2,7 @@ package com.example.infiniteerp.approval.postapproval
 
 import android.util.Log
 import android.widget.Toast
+import com.example.infiniteerp.approval.DetailApprovalActivity
 import com.example.infiniteerp.data.remote.retrofit.ApiConfig
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -11,7 +12,7 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
 
-class PostViewModel(var postActivity: PostModalActivtiy) {
+class PostViewModel(var postActivity: DetailApprovalActivity) {
 
     fun addPost(id: String) {
         val jsonObject = JSONObject()
@@ -37,7 +38,7 @@ class PostViewModel(var postActivity: PostModalActivtiy) {
                     if (response.isSuccessful) {
                         val body = response.body()
                         Log.d("TAG", "onResponse: $body")
-                        Toast.makeText(postActivity, "Row is Updated ", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(postActivity, "$body", Toast.LENGTH_SHORT).show()
 
                     }
                 }

@@ -27,8 +27,7 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
             .getAllOrderRelease(
                 "demo",
                 "demo",
-                "documentStatus='$docStatus'",
-                "processed= $posted"
+                "salesTransaction=$posted and documentStatus='$docStatus'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
                 override fun onResponse(
@@ -40,10 +39,9 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
 
                         val responseBody = response.body()
                         if (responseBody != null) {
-                            mainFragment?.setListOrder(responseBody?.response?.data)
+                            var result = responseBody?.response?.data
+                            mainFragment?.setListOrder(result)
 
-//                            _itemOrder.value = response.body().data.subList(da)
-//                            _itemOrder.value = responseBody.response.data
                         }
                     } else {
                         _isLoading.value = false

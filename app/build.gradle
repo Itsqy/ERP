@@ -9,7 +9,9 @@ android {
 
     defaultConfig {
         applicationId "com.example.infiniteerp"
-        minSdk 21
+//        minSdk 21
+        minSdk 19
+        multiDexEnabled true
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -19,6 +21,8 @@ android {
         buildConfigField "String", "API_URL", '"https://app-sg1.infinite-erp.co.id/api/users/"'
         buildConfigField "String", "API_URL_RELEASE", '"https://my.infinite-erp.co.id/infinite/"'
     }
+
+
 
     buildTypes {
         release {
@@ -61,5 +65,9 @@ dependencies {
 
     //    cottacush edittext
     implementation 'com.cottacush:CurrencyEditText:0.0.10'
+
+//    Swiperefreshlayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    
 
 }
