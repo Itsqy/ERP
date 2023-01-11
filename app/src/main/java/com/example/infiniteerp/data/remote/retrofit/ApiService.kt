@@ -19,15 +19,15 @@ interface ApiService {
     ): Call<LoginResponse>
 
     @GET("org.openbravo.service.json.jsonrest/Order")
-    fun getAllOrderDraft(
+    fun searchHeader(
         @Header("Username") username: String = "demo",
         @Header("Password") password: String = "demo",
         @Query("_where") params: String,
-
         ): Call<PurchaseOrderResponse>
 
+
     @GET("org.openbravo.service.json.jsonrest/Order")
-    fun getAllOrderRelease(
+    fun getHeader(
         @Header("Username") username: String = "demo",
         @Header("Password") password: String = "demo",
         @Query("_where") params: String,

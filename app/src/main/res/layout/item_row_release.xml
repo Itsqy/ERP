@@ -10,7 +10,7 @@
     >
 
     <TextView
-        android:id="@+id/tv_title_docs"
+        android:id="@+id/tv_title_docs_release"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="2dp"
@@ -28,7 +28,7 @@
         android:orientation="vertical"
         android:padding="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_docs">
+        app:layout_constraintTop_toBottomOf="@id/tv_title_docs_release">
 
         <TextView
             android:layout_width="match_parent"
@@ -60,7 +60,7 @@
         android:orientation="vertical"
         android:padding="14dp"
         app:layout_constraintStart_toEndOf="@id/tv_label"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_docs">
+        app:layout_constraintTop_toBottomOf="@id/tv_title_docs_release">
 
         <TextView
             android:id="@+id/tv_document_release"

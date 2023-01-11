@@ -16,15 +16,15 @@ class DraftAdapter(
 ) :
     RecyclerView.Adapter<DraftAdapter.MyViewHolder>() {
 
-
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val titleDocs = view.findViewById<TextView>(R.id.tv_title_docs_draft)
         val bussinessPartner = view.findViewById<TextView>(R.id.tv_bussinespartner_draft)
-        val docNo = view.findViewById<TextView>(R.id.tv_totalnet_draft)
+        val docNo = view.findViewById<TextView>(R.id.tv_document_no_draft)
         val totalNet = view.findViewById<TextView>(R.id.tv_totalnet_draft)
         val btnHeader = view.findViewById<Button>(R.id.btn_header)
 
-
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(
@@ -34,16 +34,20 @@ class DraftAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.docNo.text = dataHeader?.get(position)?.id
+        val count = position + 1
+        holder.titleDocs.text = "Document ${count}"
+        holder.docNo.text = dataHeader?.get(position)?.documentNo
         holder.bussinessPartner.text = dataHeader?.get(position)?.bussinesPartner
-        holder.totalNet.text = dataHeader?.get(position)?.grandTotalAmount
+        holder.totalNet.text = "Rp.  ${dataHeader?.get(position)?.grandTotalAmount}"
         holder.btnHeader.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailApprovalActivity::class.java)
             intent.putExtra("idHeader", dataHeader?.get(position))
             holder.itemView.context.startActivity(intent)
         }
 
+
     }
+
 
     override fun getItemCount(): Int {
         if (dataHeader != null) {
@@ -52,3 +56,4 @@ class DraftAdapter(
         return 0
     }
 }
+

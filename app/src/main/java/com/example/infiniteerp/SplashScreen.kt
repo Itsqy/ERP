@@ -3,6 +3,7 @@ package com.example.infiniteerp
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.example.infiniteerp.approval.ApprovalActivity
 import com.example.infiniteerp.approval.ApprovalViewModel
@@ -17,9 +18,8 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         supportActionBar?.hide()
-
-
         setupViewModel()
 
 
@@ -61,6 +61,8 @@ class SplashScreen : AppCompatActivity() {
             }
         }
     }
+
+
 
 
 }

@@ -21,10 +21,11 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
     fun showListRelease(docStatus: String, posted: Boolean) {
         _isLoading.value = true
         ApiConfig.getApiServiceHeader()
-            .getAllOrderDraft(
+            .getHeader(
                 "demo",
                 "demo",
-                "salesTransaction=$posted and documentStatus='$docStatus'" )
+                "salesTransaction=$posted and documentStatus='$docStatus'"
+            )
             .enqueue(object : Callback<PurchaseOrderResponse> {
                 override fun onResponse(
                     call: Call<PurchaseOrderResponse>,
@@ -37,8 +38,7 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
                         if (responseBody != null) {
                             mainFragment?.setListOrder(responseBody?.response?.data)
 
-//                            _itemOrder.value = response.body().data.subList(da)
-//                            _itemOrder.value = responseBody.response.data
+
                         }
                     } else {
                         _isLoading.value = false
@@ -52,5 +52,39 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
             })
     }
 
-//    fun addApprove()
+    fun searchHeaderList(id: String) {
+        _isLoading.value = true
+        ApiConfig.getApiServiceHeader()
+            .searchHeader(
+                "demo",
+                "demo",
+                "documentNo='$id'and salesTransaction=false and documentStatus='DR'"
+            )
+            .enqueue(object : Callback<PurchaseOrderResponse> {
+                override fun onResponse(
+                    call: Call<PurchaseOrderResponse>,
+                    response: Response<PurchaseOrderResponse>
+                ) {
+                    _isLoading.value = false
+                    if (response.isSuccessful) {
+
+                        val responseBody = response.body()
+                        if (responseBody != null) {
+                            var result = responseBody?.response?.data
+                            mainFragment?.setResultSearch(result)
+
+                        }
+                    } else {
+                        _isLoading.value = false
+                        Log.e(TAG, "onFailure: ${response.message()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<PurchaseOrderResponse>, t: Throwable) {
+                    Log.e(TAG, "onFailure: ${t.message}")
+                }
+            })
+    }
+
+
 }

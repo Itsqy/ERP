@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.infiniteerp.data.remote.response.ListOrder
@@ -15,7 +16,7 @@ class DraftFragment : Fragment() {
     private var _binding: FragmentDraftBinding? = null
     private val binding get() = _binding!!
     private lateinit var draftViewModel: DraftViewModel
-    private lateinit var adapter: DraftAdapter
+    private lateinit var adapterDraft: DraftAdapter
 
 
     override fun onCreateView(
@@ -31,9 +32,36 @@ class DraftFragment : Fragment() {
 
 
         draftViewModel = DraftViewModel(this)
-
         draftViewModel.showListRelease("DR", false)
         showLoading()
+
+
+        binding.swipeContianerDraft.setOnRefreshListener {
+            draftViewModel = DraftViewModel(this)
+            draftViewModel.showListRelease("DR", false)
+            showLoading()
+            binding.svDraft.clearFocus()
+            binding.swipeContianerDraft.isRefreshing = false
+        }
+
+        binding.svDraft.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                binding.svDraft.clearFocus()
+                draftViewModel.searchHeaderList(query.toString())
+
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                draftViewModel.searchHeaderList(newText.toString())
+
+                return false
+            }
+
+        })
 
 
     }
@@ -54,13 +82,25 @@ class DraftFragment : Fragment() {
     }
 
     fun setListOrder(dataOrder: List<ListOrder>?) {
-        adapter = DraftAdapter(dataOrder)
-        adapter.notifyDataSetChanged()
+        adapterDraft = DraftAdapter(dataOrder)
+        adapterDraft.notifyDataSetChanged()
         binding.apply {
             rvRelease.setHasFixedSize(true)
             rvRelease.layoutManager = LinearLayoutManager(activity)
-            rvRelease.adapter = adapter
+            rvRelease.adapter = adapterDraft
         }
+
+    }
+
+    fun setResultSearch(dataOrder: List<ListOrder>?) {
+        adapterDraft = DraftAdapter(dataOrder)
+        adapterDraft.notifyDataSetChanged()
+        binding.apply {
+            rvRelease.setHasFixedSize(true)
+            rvRelease.layoutManager = LinearLayoutManager(activity)
+            rvRelease.adapter = adapterDraft
+        }
+
 
     }
 
