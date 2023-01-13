@@ -15,6 +15,7 @@
         android:layout_marginTop="176dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="WELCOME \n BACK"
+
         android:textAlignment="textStart"
         android:textColor="@color/primaryColor"
         android:textSize="32sp"
@@ -64,9 +65,10 @@
         android:layout_width="336dp"
         android:layout_height="39dp"
         android:layout_marginTop="9dp"
-
         android:background="@drawable/edt_bg"
         android:hint="  Enter your password"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         app:layout_constraintStart_toStartOf="@id/tv_pass"
         app:layout_constraintTop_toBottomOf="@id/tv_pass" />
 

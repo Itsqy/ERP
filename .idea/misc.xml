@@ -4,20 +4,42 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable-v24/bg_home_rounded.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable-v24/home_selector.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable-v24/profile_selector.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/account_circle_logo.xml" value="0.1525" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/back_ijo.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/bg_ijo.xml" value="0.136" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/bg_ijo_rounded.xml" value="0.149" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/bg_menu_rounded.xml" value="0.1525" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/bg_rounded.xml" value="0.131" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/bg_shadow.xml" value="0.149" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/client_logo.xml" value="0.1525" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/edt_bg.xml" value="0.1425" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/externaldata_logo.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/homestroke.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/hometest.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/hr_logo.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/listpo_bg.xml" value="0.155" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/master_data_logo.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/mr_planning_logo.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/organisation_logo.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/procurement_logo.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/production_logo.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/profilefill.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/profilestroke.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/role_logo.xml" value="0.1525" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/sales_management.xml" value="0.1525" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/searchview_background.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/setting_logo.xml" value="0.1525" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/tab_background.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/drawable/warehouse_logo.xml" value="0.1525" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_approval.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_detail_approval.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_detail_line.xml" value="0.2671232876712329" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_forgot_pass.xml" value="0.176" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_home.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_home.xml" value="0.13815789473684212" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_line.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/activity_main.xml" value="0.2" />
@@ -27,14 +49,17 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/drawable_items.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/fragment_draft.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/fragment_header.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/fragment_home.xml" value="0.20261713803292528" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/fragment_line.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/fragment_menu.xml" value="0.152" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/fragment_profile.xml" value="0.176" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/fragment_release.xml" value="0.264" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/item_row_draft.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/item_row_draft.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/item_row_line.xml" value="0.36585365853658536" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/item_row_release.xml" value="0.36069651741293535" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/layout/modal_process_request.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/menu/back.xml" value="0.1" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/menu/option_menu.xml" value="0.8" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/InfiniteERP/app/src/main/res/menu/option_menu.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.20521590423257802" />
       </map>
     </option>

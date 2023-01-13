@@ -52,6 +52,7 @@ class PostViewModel(var postActivity: DetailApprovalActivity) {
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     Log.d("TAG", "onFailure: ${t.message}")
+                    Toast.makeText(postActivity, "${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
 

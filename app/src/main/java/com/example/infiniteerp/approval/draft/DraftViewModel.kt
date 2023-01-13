@@ -71,6 +71,7 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
                         val responseBody = response.body()
                         if (responseBody != null) {
                             var result = responseBody?.response?.data
+                            
                             mainFragment?.setResultSearch(result)
 
                         }

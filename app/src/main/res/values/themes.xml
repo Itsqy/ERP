@@ -10,7 +10,6 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-
         <!-- Customize your theme here. -->
         <item name="tabStyle">
             @font/poppins_semibold
@@ -31,4 +30,17 @@
         <item name="color">@color/black</item>
         <item name="android:shadowRadius">30</item>
     </style>
+
+    <!--    <item name="bottomNavigationStyle" type="style">@style/BottomNavigationViewStyle</item>-->
+
+    <!--    <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored">-->
+    <!--        <item name="android:background">@color/primaryColor</item>-->
+    <!--        <item name="itemTextColor">@color/bottom_nav_icon_color_selector</item>-->
+    <!--        <item name="itemIconTint">@color/bottom_nav_icon_color_selector</item>-->
+    <!--    </style>-->
+
+    <style name="Button.primary" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@color/primaryColor</item>
+    </style>
+
 </resources>

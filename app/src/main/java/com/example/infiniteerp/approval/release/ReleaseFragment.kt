@@ -17,7 +17,8 @@ class ReleaseFragment : Fragment() {
 
     private var _binding: FragmentReleaseBinding? = null
     private val binding get() = _binding!!
-    private lateinit var releaseViewModel: ReleaseViewModel
+    private lateinit var
+            releaseViewModel: ReleaseViewModel
     private lateinit var adapterRelease: ReleaseAdapter
 
     override fun onCreateView(

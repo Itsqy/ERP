@@ -10,12 +10,12 @@ import com.example.infiniteerp.data.remote.retrofit.ApiConfig
 import com.example.infiniteerp.utils.Helpers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
-import org.json.JSONTokener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModel(private val pref: UserPreferences) : ViewModel() {
+class LoginViewModel(private val pref: UserPreferences) :
+    ViewModel() {
     companion object {
         private const val TAG = "SignInViewModel"
         private const val SUCCESS = "success"
@@ -31,9 +31,7 @@ class LoginViewModel(private val pref: UserPreferences) : ViewModel() {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null && responseBody.success) {
-
                         callback.onResponse(response.body() != null, SUCCESS)
-
                         val model = UserModel(
                             email,
                             pass,
@@ -43,14 +41,13 @@ class LoginViewModel(private val pref: UserPreferences) : ViewModel() {
                             true
                         )
                         saveUser(model)
+
+                    } else {
+                        Log.e(TAG, "onFailure: ${response.message()}")
+                        if (responseBody != null) {
+                            callback.onResponse(false, responseBody.response)
+                        }
                     }
-                } else {
-                    Log.e(TAG, "onFailure: ${response.message()}")
-                    // get message error
-                    val jsonObject =
-                        JSONTokener(response.errorBody()!!.string()).nextValue() as JSONObject
-                    val message = jsonObject.getString("message")
-                    callback.onResponse(false, message)
                 }
 
             }

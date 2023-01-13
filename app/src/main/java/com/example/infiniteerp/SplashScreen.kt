@@ -5,9 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
-import com.example.infiniteerp.approval.ApprovalActivity
 import com.example.infiniteerp.approval.ApprovalViewModel
 import com.example.infiniteerp.data.model.UserPreferences
+import com.example.infiniteerp.home.HomeActivity
 import com.example.infiniteerp.login.LoginActivity
 import com.example.infiniteerp.utils.ViewModelFactory
 
@@ -18,15 +18,29 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         supportActionBar?.hide()
         setupViewModel()
 
 
     }
 
-
     private fun setupViewModel() {
+        Thread(Runnable {
+            try {
+                Thread.sleep(2000)
+            } catch (e: InterruptedException) {
+                e.printStackTrace()
+            }
+            runOnUiThread {
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        }).start()
+    }
+
+
+    private fun setupViewModelWthUserPref() {
         approvalViewModel = ViewModelProvider(
             this,
             ViewModelFactory(UserPreferences.getInstance(dataStore))
@@ -41,7 +55,7 @@ class SplashScreen : AppCompatActivity() {
                         e.printStackTrace()
                     }
                     runOnUiThread {
-                        startActivity(Intent(this, ApprovalActivity::class.java))
+                        startActivity(Intent(this, HomeActivity::class.java))
                         finish()
                     }
                 }).start()
@@ -61,8 +75,6 @@ class SplashScreen : AppCompatActivity() {
             }
         }
     }
-
-
 
 
 }

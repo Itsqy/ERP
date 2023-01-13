@@ -40,15 +40,22 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val pass = binding.edtPass.text.toString()
-            loginViewModel.login(email, pass, object : Helpers.ApiCallbackString {
-                override fun onResponse(success: Boolean, message: String) {
+            if (email.isEmpty() || pass.isEmpty()) {
+                Helpers.showDialog(this, "Please fill all the fields")
+            } else {
+                loginViewModel.login(email, pass, object : Helpers.ApiCallbackString {
+                    override fun onResponse(success: Boolean, message: String) {
+                        showAlertDialog(success, message)
+                    }
 
-                    showAlertDialog(success, message)
 
-                }
-            })
+
+
+                })
+            }
+
+
         }
-
 
     }
 
