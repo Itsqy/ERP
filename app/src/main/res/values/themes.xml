@@ -31,6 +31,10 @@
         <item name="android:shadowRadius">30</item>
     </style>
 
+    <style name="EditTextThemeOverlay" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@android:color/holo_blue_light</item>
+    </style>
+
     <!--    <item name="bottomNavigationStyle" type="style">@style/BottomNavigationViewStyle</item>-->
 
     <!--    <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored">-->

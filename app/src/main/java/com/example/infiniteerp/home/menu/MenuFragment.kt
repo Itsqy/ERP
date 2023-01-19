@@ -26,7 +26,7 @@ class MenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.procurementMenu.setOnClickListener {
+        binding.ivProcure.setOnClickListener {
             val intent = Intent(activity, ApprovalActivity::class.java)
             startActivity(intent)
         }
