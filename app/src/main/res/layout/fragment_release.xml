@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:queryBackground="@color/tranparant"
-            app:queryHint="Search here" />
+            app:queryHint="Search Document No." />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_release"

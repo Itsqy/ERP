@@ -25,6 +25,7 @@ import com.example.infiniteerp.utils.ViewModelFactory
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
 
 class DetailApprovalActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityDetailApprovalBinding
     private lateinit var postViewModel: PostViewModel
     private lateinit var approvalViewModel: ApprovalViewModel
@@ -42,6 +43,11 @@ class DetailApprovalActivity : AppCompatActivity() {
 
         showDetail()
 
+
+    }
+
+    fun ShowToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
     }
 
@@ -91,7 +97,7 @@ class DetailApprovalActivity : AppCompatActivity() {
                             postViewModel.addPost(user.username, user.password, releaseOrder.id)
                         }
 
-                        Toast.makeText(this, "1 row updated complete", Toast.LENGTH_SHORT).show()
+
                     } else {
                         Toast.makeText(this, "Header ini tidak memiliki Lines ", Toast.LENGTH_SHORT)
                             .show()

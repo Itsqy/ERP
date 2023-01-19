@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.infiniteerp.approval.DetailApprovalActivity
 import com.example.infiniteerp.approval.release.ReleaseViewModel
 import com.example.infiniteerp.data.remote.response.PurchaseOrderResponse
+import com.example.infiniteerp.data.remote.response.ResponseApprove
 import com.example.infiniteerp.data.remote.retrofit.ApiConfig
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -19,8 +20,7 @@ import retrofit2.Response
 
 class PostViewModel(var postActivity: DetailApprovalActivity) {
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+
     fun addPost(userName: String, passWord: String, id: String) {
         val jsonObject = JSONObject()
         val jsonArray = JSONArray()
@@ -37,22 +37,22 @@ class PostViewModel(var postActivity: DetailApprovalActivity) {
 
         val apiService = ApiConfig.getApiServiceHeader()
         apiService.postOrder(userName, passWord, requestBody)
-            .enqueue(object : retrofit2.Callback<ResponseBody> {
+            .enqueue(object : Callback<ResponseApprove> {
                 override fun onResponse(
-                    call: Call<ResponseBody>,
-                    response: Response<ResponseBody>
+                    call: Call<ResponseApprove>,
+                    response: Response<ResponseApprove>
                 ) {
                     if (response.isSuccessful) {
-                        val body = response.body()
-                        Log.d("TAG", "onResponse: $body")
-                        Toast.makeText(postActivity, "", Toast.LENGTH_SHORT).show()
+                        val body = response.body()!!.message
+                        Log.d("TAG", "onResponse: ${body.text}")
+                        postActivity.ShowToast(body.text)
 
                     }
                 }
 
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                override fun onFailure(call: Call<ResponseApprove>, t: Throwable) {
                     Log.d("TAG", "onFailure: ${t.message}")
-                    Toast.makeText(postActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+                    postActivity.ShowToast(t.message.toString())
                 }
             })
 

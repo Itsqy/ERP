@@ -14,7 +14,7 @@ data class LoginResponse(
 
     @field:SerializedName("auth")
     val auth: String,
-
+// additional for error
     @field:SerializedName("response")
     val response: String,
 )

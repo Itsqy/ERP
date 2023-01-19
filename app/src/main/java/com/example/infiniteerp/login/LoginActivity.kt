@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -25,6 +26,7 @@ import com.example.infiniteerp.utils.Helpers
 import com.example.infiniteerp.utils.ViewModelFactory
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
+
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
@@ -32,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         supportActionBar?.hide()
         buttonListener()
         setupViewModel()
@@ -46,7 +48,12 @@ class LoginActivity : AppCompatActivity() {
     private fun setUpEdt() {
         binding.edtPass.addTextChangedListener(
             object : TextWatcher {
-                override fun beforeTextChanged(p0: CharSequence, start: Int, count: Int, after: Int) {
+                override fun beforeTextChanged(
+                    p0: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
 //                    buttonListener()
                 }
 

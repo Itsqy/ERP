@@ -41,10 +41,6 @@ class SplashScreen : AppCompatActivity() {
 
 
     private fun setupViewModelWthUserPref() {
-//        approvalViewModel = ViewModelProvider(
-//            this,
-//            ViewModelFactory(UserPreferences.getInstance(dataStore))
-//        )[ApprovalViewModel::class.java]
 
         approvalViewModel.getUser().observe(this) {
             if (it.isLogin) {

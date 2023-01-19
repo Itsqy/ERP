@@ -3,6 +3,7 @@ package com.example.infiniteerp.data.remote.retrofit
 import com.example.infiniteerp.data.remote.response.LineReponse
 import com.example.infiniteerp.data.remote.response.LoginResponse
 import com.example.infiniteerp.data.remote.response.PurchaseOrderResponse
+import com.example.infiniteerp.data.remote.response.ResponseApprove
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -47,7 +48,7 @@ interface ApiService {
         @Header("Username") username: String = "demo",
         @Header("Password") password: String = "demo",
         @Body requestBody: RequestBody
-    ): Call<ResponseBody>
+    ): Call<ResponseApprove>
 
 
 }

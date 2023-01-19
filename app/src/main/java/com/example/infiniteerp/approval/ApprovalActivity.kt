@@ -3,6 +3,7 @@ package com.example.infiniteerp.approval
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.example.infiniteerp.approval.draft.DraftFragment
 import com.example.infiniteerp.approval.release.ReleaseFragment
@@ -21,19 +22,12 @@ class ApprovalActivity : AppCompatActivity() {
         binding = ActivityApprovalBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setSupportActionBar(binding.tbApproval)
         setUpTabs()
-//        setupViewModel()
+
     }
 
-//    private fun setupViewModel() {
-//        approvalViewModel = ViewModelProvider(
-//            this@ApprovalActivity,
-//            ViewModelFactory(UserPreferences.getInstance())
-//        )[ApprovalViewModel::class.java]
-//
-//
-//    }
 
 
     private fun setUpTabs() {
