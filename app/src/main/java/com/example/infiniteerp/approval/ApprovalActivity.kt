@@ -8,7 +8,7 @@ import com.example.infiniteerp.approval.draft.DraftFragment
 import com.example.infiniteerp.approval.release.ReleaseFragment
 import com.example.infiniteerp.data.model.UserModel
 import com.example.infiniteerp.data.model.UserPreferences
-import com.example.infiniteerp.dataStore
+
 import com.example.infiniteerp.databinding.ActivityApprovalBinding
 import com.example.infiniteerp.utils.ViewModelFactory
 
@@ -23,17 +23,17 @@ class ApprovalActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setSupportActionBar(binding.tbApproval)
         setUpTabs()
-        setupViewModel()
+//        setupViewModel()
     }
 
-    private fun setupViewModel() {
-        approvalViewModel = ViewModelProvider(
-            this@ApprovalActivity,
-            ViewModelFactory(UserPreferences.getInstance(dataStore))
-        )[ApprovalViewModel::class.java]
-
-
-    }
+//    private fun setupViewModel() {
+//        approvalViewModel = ViewModelProvider(
+//            this@ApprovalActivity,
+//            ViewModelFactory(UserPreferences.getInstance())
+//        )[ApprovalViewModel::class.java]
+//
+//
+//    }
 
 
     private fun setUpTabs() {

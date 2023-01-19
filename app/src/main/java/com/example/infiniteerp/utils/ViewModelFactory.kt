@@ -21,11 +21,6 @@ class ViewModelFactory(private val pref: UserPreferences) : ViewModelProvider.Ne
             modelClass.isAssignableFrom(ApprovalViewModel::class.java) -> {
                 ApprovalViewModel(pref) as T
             }
-//            modelClass.isAssignableFrom(LineViewModel::class.java) -> {
-//                LineViewModel(
-//                    pref
-//                ) as T
-//            }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

@@ -1,23 +1,31 @@
 package com.example.infiniteerp.approval.line
 
+import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.infiniteerp.approval.ApprovalViewModel
+import com.example.infiniteerp.data.model.UserModel
+import com.example.infiniteerp.data.model.UserPreferences
 import com.example.infiniteerp.data.remote.response.ListOrder
 import com.example.infiniteerp.data.remote.response.ListOrderLine
 import com.example.infiniteerp.databinding.ActivityLineBinding
+import com.example.infiniteerp.utils.ViewModelFactory
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
 
 class LineActivity : AppCompatActivity() {
     lateinit var binding: ActivityLineBinding
-    private lateinit var adapter: LineAdapter
     lateinit var lineViewModel: LineViewModel
+    private lateinit var approvalViewModel: ApprovalViewModel
+    private lateinit var user: UserModel
 
-    companion object {
-        const val EXTRA_LINE = "line_extra"
-        const val TAG = "LineActivity"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityLineBinding.inflate(layoutInflater)
@@ -27,19 +35,35 @@ class LineActivity : AppCompatActivity() {
 
 
         binding.tbLine.title = "Lines"
-        val idHeader = intent.getParcelableExtra<ListOrder>("idLine")
-        lineViewModel = LineViewModel(this)
-        if (idHeader != null) {
 
-            lineViewModel.showListLine(idHeader.id)
-
-        }
-
+        seUpViewModel()
         showLoading()
 
 
+    }
+
+    private fun seUpViewModel() {
+        val idHeader = intent.getParcelableExtra<ListOrder>("idLine")
+        lineViewModel = LineViewModel(this)
+        if (idHeader != null) {
+            approvalViewModel =
+                ViewModelProvider(
+                    this@LineActivity, ViewModelFactory(UserPreferences.getInstance(dataStore))
+                )[ApprovalViewModel::class.java]
+
+            approvalViewModel.getUser().observe(this) {
+                user = UserModel(
+                    it.username, it.password, it.clientId, it.orgId, it.token, true
+                )
+                lineViewModel.showListLine(user.username, user.password, idHeader.id)
+            }
+
+//            Log.d("lineActivity", "$user")
 
 
+            showLoading()
+
+        }
     }
 
     fun showEmpty() {

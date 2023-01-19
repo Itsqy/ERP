@@ -32,6 +32,7 @@ class LoginViewModel(private val pref: UserPreferences) :
                     val responseBody = response.body()
                     if (responseBody != null && responseBody.success) {
                         callback.onResponse(response.body() != null, SUCCESS)
+
                         val model = UserModel(
                             email,
                             pass,

@@ -21,7 +21,7 @@ class PostViewModel(var postActivity: DetailApprovalActivity) {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
-    fun addPost(id: String) {
+    fun addPost(userName: String, passWord: String, id: String) {
         val jsonObject = JSONObject()
         val jsonArray = JSONArray()
 
@@ -36,7 +36,7 @@ class PostViewModel(var postActivity: DetailApprovalActivity) {
         val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
 
         val apiService = ApiConfig.getApiServiceHeader()
-        apiService.postOrder("demo", "demo", requestBody)
+        apiService.postOrder(userName, passWord, requestBody)
             .enqueue(object : retrofit2.Callback<ResponseBody> {
                 override fun onResponse(
                     call: Call<ResponseBody>,
@@ -45,7 +45,7 @@ class PostViewModel(var postActivity: DetailApprovalActivity) {
                     if (response.isSuccessful) {
                         val body = response.body()
                         Log.d("TAG", "onResponse: $body")
-                        Toast.makeText(postActivity, "$body", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(postActivity, "", Toast.LENGTH_SHORT).show()
 
                     }
                 }
@@ -58,7 +58,6 @@ class PostViewModel(var postActivity: DetailApprovalActivity) {
 
 
     }
-
 
 
 }

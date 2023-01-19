@@ -1,6 +1,7 @@
 package com.example.infiniteerp.login
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -12,21 +13,21 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import com.example.infiniteerp.data.model.UserPreferences
-import com.example.infiniteerp.dataStore
+
 import com.example.infiniteerp.databinding.ActivityLoginBinding
 import com.example.infiniteerp.home.HomeActivity
 import com.example.infiniteerp.utils.Helpers
 import com.example.infiniteerp.utils.ViewModelFactory
 
-
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)

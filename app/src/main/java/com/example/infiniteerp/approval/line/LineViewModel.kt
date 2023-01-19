@@ -20,9 +20,9 @@ class LineViewModel(var lineActivity: LineActivity) : ViewModel() {
     val isLoading: LiveData<Boolean> = _isLoading
 
 
-    fun showListLine(id: String) {
+    fun showListLine(userName: String, passWord: String, id: String) {
         _isLoading.value = true
-        ApiConfig.getApiServiceHeader().getOrderLine("demo", "demo", "salesOrder='$id'")
+        ApiConfig.getApiServiceHeader().getOrderLine(userName, passWord, "salesOrder='$id'")
             .enqueue(object : Callback<LineReponse> {
                 override fun onResponse(
                     call: Call<LineReponse>,

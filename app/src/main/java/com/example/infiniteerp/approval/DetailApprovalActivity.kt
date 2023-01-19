@@ -1,20 +1,34 @@
 package com.example.infiniteerp.approval
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.example.infiniteerp.approval.line.LineActivity
 import com.example.infiniteerp.approval.postapproval.PostViewModel
+import com.example.infiniteerp.data.model.UserModel
+import com.example.infiniteerp.data.model.UserPreferences
 import com.example.infiniteerp.data.remote.response.ListOrder
 import com.example.infiniteerp.databinding.ActivityDetailApprovalBinding
+import com.example.infiniteerp.utils.ViewModelFactory
 
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("settings")
 
 class DetailApprovalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailApprovalBinding
     private lateinit var postViewModel: PostViewModel
+    private lateinit var approvalViewModel: ApprovalViewModel
+    private lateinit var user: UserModel
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,27 +60,37 @@ class DetailApprovalActivity : AppCompatActivity() {
             binding.tvTotalNet.text = "Rp. $netAmount"
             binding.tvDocStatus.text = releaseOrder.documentStatus
 
+            if (releaseOrder.documentStatus != "CO") {
+                binding.bnApprove.visibility = View.VISIBLE
+                binding.bnDetail.setOnClickListener {
+                    val intent = Intent(this, LineActivity::class.java)
+                    intent.putExtra("idLine", releaseOrder)
+                    startActivity(intent)
+                }
+            } else {
 
-            binding.bnDetail.setOnClickListener {
-                val intent = Intent(this, LineActivity::class.java)
-                intent.putExtra("idLine", releaseOrder)
-                startActivity(intent)
+                binding.bnApprove.visibility = View.GONE
+
             }
-
             binding.bnApprove.setOnClickListener {
 
-//                val intent = Intent(this, PostModalActivtiy::class.java)
-//                intent.putExtra("popuptitle", "Process Request")
-//                intent.putExtra("popuptext", "Action :")
-//                intent.putExtra("popupbtn", "OK")
-//                intent.putExtra("darkstatusbar", false)
-//                intent.putExtra("idheader", releaseOrder)
-//                startActivity(intent)
+                approvalViewModel =
+                    ViewModelProvider(
+                        this@DetailApprovalActivity,
+                        ViewModelFactory(UserPreferences.getInstance(dataStore))
+                    )[ApprovalViewModel::class.java]
+
 
                 postViewModel = PostViewModel(this)
                 if (releaseOrder != null) {
                     if (releaseOrder.grandTotalAmount != "0") {
-                        postViewModel.addPost(releaseOrder.id)
+                        approvalViewModel.getUser().observe(this) {
+                            user = UserModel(
+                                it.username, it.password, it.clientId, it.orgId, it.token, true
+                            )
+                            postViewModel.addPost(user.username, user.password, releaseOrder.id)
+                        }
+
                         Toast.makeText(this, "1 row updated complete", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this, "Header ini tidak memiliki Lines ", Toast.LENGTH_SHORT)

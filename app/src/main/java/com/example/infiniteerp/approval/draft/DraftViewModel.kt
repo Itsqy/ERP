@@ -18,12 +18,12 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun showListRelease(docStatus: String, posted: Boolean) {
+    fun showListRelease(userName: String, passWord: String, docStatus: String, posted: Boolean) {
         _isLoading.value = true
         ApiConfig.getApiServiceHeader()
             .getHeader(
-                "demo",
-                "demo",
+                userName,
+                passWord,
                 "salesTransaction=$posted and documentStatus='$docStatus'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
@@ -52,12 +52,12 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
             })
     }
 
-    fun searchHeaderList(id: String) {
+    fun searchHeaderList(userName: String, passWord: String, id: String) {
         _isLoading.value = true
         ApiConfig.getApiServiceHeader()
             .searchHeader(
-                "demo",
-                "demo",
+                userName,
+                passWord,
                 "documentNo='$id'and salesTransaction=false and documentStatus='DR'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
@@ -71,7 +71,7 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
                         val responseBody = response.body()
                         if (responseBody != null) {
                             var result = responseBody?.response?.data
-                            
+
                             mainFragment?.setResultSearch(result)
 
                         }

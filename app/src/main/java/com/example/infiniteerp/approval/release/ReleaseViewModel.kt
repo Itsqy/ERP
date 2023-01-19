@@ -1,32 +1,40 @@
 package com.example.infiniteerp.approval.release
 
+import android.content.Context
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.infiniteerp.data.model.UserPreferences
 import com.example.infiniteerp.data.remote.response.PurchaseOrderResponse
 import com.example.infiniteerp.data.remote.retrofit.ApiConfig
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
+
+
 
 class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
     companion object {
         private const val TAG = "ReleaseViewModel"
     }
 
-//    private val _itemOrder = MutableLiveData<List<ListOrder?>>()
-//    val itemOrder: LiveData<List<ListOrder?>> = _itemOrder
-
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun showListRelease(docStatus: String, posted: Boolean) {
+    fun showListRelease(userName: String, passWord: String, docStatus: String, posted: Boolean) {
         _isLoading.value = true
         ApiConfig.getApiServiceHeader()
             .getHeader(
-                "demo",
-                "demo",
+                userName,
+                passWord,
                 "salesTransaction=$posted and documentStatus='$docStatus'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
@@ -55,12 +63,12 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
             })
     }
 
-    fun searchHeaderList(id: String) {
+    fun searchHeaderList(userName: String, passWord: String, id: String) {
         _isLoading.value = true
         ApiConfig.getApiServiceHeader()
             .searchHeader(
-                "demo",
-                "demo",
+                userName,
+                passWord,
                 "documentNo='$id'and salesTransaction=false and documentStatus='CO'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
