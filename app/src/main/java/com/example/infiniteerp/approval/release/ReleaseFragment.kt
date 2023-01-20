@@ -136,5 +136,26 @@ class ReleaseFragment : Fragment() {
 
     }
 
+// udh muncul response nya tapi g muncul di layar
+//    fun testLiveData() {
+//        binding.apply {
+//            rvRelease.layoutManager = LinearLayoutManager(activity)
+//            rvRelease.setHasFixedSize(true)
+//            adapterReleaseNew = ReleaseAdapterNew()
+////            adapterReleaseNew.notifyDataSetChanged()
+//            rvRelease.adapter = adapterReleaseNew
+//        }
+//
+//        releaseViewModel.showListRelease("demo", "demo", "CO", false)
+//        releaseViewModel.itemStory.observe(requireActivity()) {
+//            adapterReleaseNew.setListStory(it)
+//        }
+//    }
+//jadi lebih update setelah approve , tapi geser dikit jadi loading halamannya
+//    override fun onResume() {
+//        super.onResume()
+//        setUpViewModel()
+//    }
+
 
 }
