@@ -40,8 +40,11 @@ class DetailApprovalActivity : AppCompatActivity() {
         setSupportActionBar(binding.tbApproval)
 
 
-
         showDetail()
+        binding.swiperefreshDetailAppr.setOnRefreshListener {
+            showDetail()
+            binding.swiperefreshDetailAppr.isRefreshing = false
+        }
 
 
     }
@@ -64,18 +67,26 @@ class DetailApprovalActivity : AppCompatActivity() {
             binding.tvBusinessPartner.text = releaseOrder.bussinesPartner
             binding.tvDeliveryDate.text = releaseOrder.scheduledDeliveryDate
             binding.tvTotalNet.text = "Rp. $netAmount"
-            binding.tvDocStatus.text = releaseOrder.documentStatus
+            binding.tvDocStatus.text = "Draft"
 
-            if (releaseOrder.documentStatus != "CO") {
+
+            if (releaseOrder.documentStatus != "CO" && releaseOrder.grandTotalAmount > "0") {
                 binding.bnApprove.visibility = View.VISIBLE
                 binding.bnDetail.setOnClickListener {
                     val intent = Intent(this, LineActivity::class.java)
                     intent.putExtra("idLine", releaseOrder)
                     startActivity(intent)
+
                 }
             } else {
-
                 binding.bnApprove.visibility = View.GONE
+                binding.bnDetail.setOnClickListener {
+                    val intent = Intent(this, LineActivity::class.java)
+                    intent.putExtra("idLine", releaseOrder)
+                    startActivity(intent)
+                }
+                binding.tvDocStatus.text = "Complete"
+
 
             }
             binding.bnApprove.setOnClickListener {
