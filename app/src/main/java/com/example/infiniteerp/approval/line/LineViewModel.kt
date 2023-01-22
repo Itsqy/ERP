@@ -22,7 +22,8 @@ class LineViewModel(var lineActivity: LineActivity) : ViewModel() {
 
     fun showListLine(userName: String, passWord: String, id: String) {
         _isLoading.value = true
-        ApiConfig.getApiServiceHeader().getOrderLine(userName, passWord, "salesOrder='$id'")
+        ApiConfig(userName, passWord).getApiServiceHeader()
+            .getOrderLine("salesOrder='$id'")
             .enqueue(object : Callback<LineReponse> {
                 override fun onResponse(
                     call: Call<LineReponse>,

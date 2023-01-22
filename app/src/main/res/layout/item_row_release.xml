@@ -76,6 +76,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_reguler"
             android:maxLength="20"
+            android:ellipsize="end"
             android:text="Example"
             android:textColor="@color/black" />
 

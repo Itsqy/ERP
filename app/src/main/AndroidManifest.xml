@@ -22,9 +22,9 @@
             android:name=".home.HomeActivity"
             android:exported="false"
             android:launchMode="singleTop" />
-        <activity
-            android:name=".approval.postapproval.PostModalActivtiy"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".approval.postapproval.PostModalActivtiy"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".approval.line.DetailLineActivity"
             android:exported="false" />

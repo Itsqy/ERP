@@ -24,7 +24,7 @@ class LoginViewModel(private val pref: UserPreferences) :
     fun login(email: String, pass: String, callback: Helpers.ApiCallbackString) {
 
         val service =
-            ApiConfig().getApiService().login(email, pass, "62704287CEB744C7BA2CF4E4E39335D7", "*")
+            ApiConfig.getApiService().login(email, pass, "62704287CEB744C7BA2CF4E4E39335D7", "*")
 
         service.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {

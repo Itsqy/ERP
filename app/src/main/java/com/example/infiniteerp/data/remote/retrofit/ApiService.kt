@@ -21,23 +21,17 @@ interface ApiService {
 
     @GET("org.openbravo.service.json.jsonrest/Order")
     fun searchHeader(
-        @Header("Username") username: String = "demo",
-        @Header("Password") password: String = "demo",
         @Query("_where") params: String,
-        ): Call<PurchaseOrderResponse>
+    ): Call<PurchaseOrderResponse>
 
 
     @GET("org.openbravo.service.json.jsonrest/Order")
     fun getHeader(
-        @Header("Username") username: String = "demo",
-        @Header("Password") password: String = "demo",
         @Query("_where") params: String,
     ): Call<PurchaseOrderResponse>
 
     @GET("org.openbravo.service.json.jsonrest/OrderLine?")
     fun getOrderLine(
-        @Header("Username") username: String = "demo",
-        @Header("Password") password: String = "demo",
         @Query("_where") id: String,
     ): Call<LineReponse>
 
@@ -45,8 +39,6 @@ interface ApiService {
     @Headers("Content-Type: application/json")
     @POST("org.openbravo.client.kernel?_action=org.wirabumi.gen.oez.event.DocumentRoutingHandler")
     fun postOrder(
-        @Header("Username") username: String = "demo",
-        @Header("Password") password: String = "demo",
         @Body requestBody: RequestBody
     ): Call<ResponseApprove>
 

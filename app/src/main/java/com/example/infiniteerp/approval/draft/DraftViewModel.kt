@@ -20,10 +20,11 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
 
     fun showListRelease(userName: String, passWord: String, docStatus: String, posted: Boolean) {
         _isLoading.value = true
-        ApiConfig.getApiServiceHeader()
+        ApiConfig(
+            userName,
+            passWord,
+        ).getApiServiceHeader()
             .getHeader(
-                userName,
-                passWord,
                 "salesTransaction=$posted and documentStatus='$docStatus'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
@@ -54,10 +55,11 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
 
     fun searchHeaderList(userName: String, passWord: String, id: String) {
         _isLoading.value = true
-        ApiConfig.getApiServiceHeader()
+        ApiConfig(
+            userName,
+            passWord,
+        ).getApiServiceHeader()
             .searchHeader(
-                userName,
-                passWord,
                 "documentNo='$id'and salesTransaction=false and documentStatus='DR'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {

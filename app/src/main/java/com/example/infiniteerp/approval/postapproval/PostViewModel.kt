@@ -35,8 +35,8 @@ class PostViewModel(var postActivity: DetailApprovalActivity) {
         val jsonObjectString = jsonObject.toString()
         val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
 
-        val apiService = ApiConfig.getApiServiceHeader()
-        apiService.postOrder(userName, passWord, requestBody)
+        val apiService = ApiConfig(userName, passWord).getApiServiceHeader()
+        apiService.postOrder(requestBody)
             .enqueue(object : Callback<ResponseApprove> {
                 override fun onResponse(
                     call: Call<ResponseApprove>,

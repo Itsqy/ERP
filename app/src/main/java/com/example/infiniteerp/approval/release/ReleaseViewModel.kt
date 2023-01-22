@@ -19,8 +19,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-
-
 class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
     companion object {
         private const val TAG = "ReleaseViewModel"
@@ -31,11 +29,8 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
 
     fun showListRelease(userName: String, passWord: String, docStatus: String, posted: Boolean) {
         _isLoading.value = true
-        ApiConfig.getApiServiceHeader()
-            .getHeader(
-                userName,
-                passWord,
-                "salesTransaction=$posted and documentStatus='$docStatus'"
+        ApiConfig(userName, passWord).getApiServiceHeader()
+            .getHeader("salesTransaction=$posted and documentStatus='$docStatus'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
                 override fun onResponse(
@@ -65,10 +60,8 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
 
     fun searchHeaderList(userName: String, passWord: String, id: String) {
         _isLoading.value = true
-        ApiConfig.getApiServiceHeader()
+        ApiConfig(userName,passWord).getApiServiceHeader()
             .searchHeader(
-                userName,
-                passWord,
                 "documentNo='$id'and salesTransaction=false and documentStatus='CO'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
