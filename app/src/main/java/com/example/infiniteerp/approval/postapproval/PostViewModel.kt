@@ -44,14 +44,18 @@ class PostViewModel(var postActivity: DetailApprovalActivity) {
                 ) {
                     if (response.isSuccessful) {
                         val body = response.body()!!.message
-                        Log.d("TAG", "onResponse: ${body.text}")
-                        postActivity.ShowToast(body.text)
-
+                        if (body.severity != "error") {
+                            Log.d("TAG", "onResponse: ${body.text}")
+                            postActivity.ShowToast(body.text)
+                        } else {
+                            Log.d("TAG", "onResponse: ${body.severity}")
+                            postActivity.ShowToast(body.severity)
+                        }
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseApprove>, t: Throwable) {
-                    Log.d("TAG", "onFailure: ${t.message}")
+                    Log.d("TAG", "onFailure: ${t.message.toString()}")
                     postActivity.ShowToast(t.message.toString())
                 }
             })

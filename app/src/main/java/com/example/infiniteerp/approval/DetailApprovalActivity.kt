@@ -36,7 +36,6 @@ class DetailApprovalActivity : AppCompatActivity() {
         binding = ActivityDetailApprovalBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        supportActionBar?.hide()
         setSupportActionBar(binding.tbApproval)
 
 
@@ -66,7 +65,7 @@ class DetailApprovalActivity : AppCompatActivity() {
             binding.tvOrderDate.text = releaseOrder.orderDate
             binding.tvBusinessPartner.text = releaseOrder.bussinesPartner
             binding.tvDeliveryDate.text = releaseOrder.scheduledDeliveryDate
-            binding.tvTotalNet.text = "Rp. $netAmount"
+            binding.tvTotalNet.text = "Rp." + releaseOrder.grandTotalAmount
             binding.tvDocStatus.text = "Draft"
 
 
@@ -90,7 +89,6 @@ class DetailApprovalActivity : AppCompatActivity() {
 
             }
             binding.bnApprove.setOnClickListener {
-
                 approvalViewModel =
                     ViewModelProvider(
                         this@DetailApprovalActivity,

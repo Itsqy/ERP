@@ -40,34 +40,34 @@ class LoginActivity : AppCompatActivity() {
         setupViewModel()
         setupUI(binding.layoutLogin)
 
-        setUpEdt()
+
 
 
     }
 
-    private fun setUpEdt() {
-        binding.edtPass.addTextChangedListener(
-            object : TextWatcher {
-                override fun beforeTextChanged(
-                    p0: CharSequence,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
+//    private fun setUpEdt() {
+//        binding.edtPass.addTextChangedListener(
+//            object : TextWatcher {
+//                override fun beforeTextChanged(
+//                    p0: CharSequence,
+//                    start: Int,
+//                    count: Int,
+//                    after: Int
+//                ) {
+////                    buttonListener()
+//                }
+//
+//                override fun onTextChanged(p0: CharSequence, start: Int, before: Int, count: Int) {
 //                    buttonListener()
-                }
-
-                override fun onTextChanged(p0: CharSequence, start: Int, before: Int, count: Int) {
-                    buttonListener()
-                }
-
-                override fun afterTextChanged(p0: Editable) {
-//                    buttonListener()
-                }
-
-            }
-        )
-    }
+//                }
+//
+//                override fun afterTextChanged(p0: Editable) {
+////                    buttonListener()
+//                }
+//
+//            }
+//        )
+//    }
 
     fun setupUI(view: View) {
 

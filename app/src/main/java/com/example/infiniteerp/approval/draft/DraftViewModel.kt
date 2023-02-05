@@ -44,11 +44,14 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
                     } else {
                         _isLoading.value = false
                         Log.e(TAG, "onFailure: ${response.message()}")
+                        mainFragment?.showToast(response.message())
                     }
                 }
 
                 override fun onFailure(call: Call<PurchaseOrderResponse>, t: Throwable) {
+                    _isLoading.value = false
                     Log.e(TAG, "onFailure: ${t.message}")
+                    mainFragment?.showToast(t.message.toString())
                 }
             })
     }
@@ -80,11 +83,14 @@ class DraftViewModel(var mainFragment: DraftFragment) : ViewModel() {
                     } else {
                         _isLoading.value = false
                         Log.e(TAG, "onFailure: ${response.message()}")
+                        mainFragment.showToast(response.message())
                     }
                 }
 
                 override fun onFailure(call: Call<PurchaseOrderResponse>, t: Throwable) {
+                    _isLoading.value = false
                     Log.e(TAG, "onFailure: ${t.message}")
+                    mainFragment.showToast(t.message.toString())
                 }
             })
     }

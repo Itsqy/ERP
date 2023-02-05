@@ -30,7 +30,8 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
     fun showListRelease(userName: String, passWord: String, docStatus: String, posted: Boolean) {
         _isLoading.value = true
         ApiConfig(userName, passWord).getApiServiceHeader()
-            .getHeader("salesTransaction=$posted and documentStatus='$docStatus'"
+            .getHeader(
+                "salesTransaction=$posted and documentStatus='$docStatus'"
             )
             .enqueue(object : Callback<PurchaseOrderResponse> {
                 override fun onResponse(
@@ -49,18 +50,21 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
                     } else {
                         _isLoading.value = false
                         Log.e(TAG, "onFailure: ${response.message()}")
+                        mainFragment?.showToast(response.message())
                     }
                 }
 
                 override fun onFailure(call: Call<PurchaseOrderResponse>, t: Throwable) {
+                    _isLoading.value = false
                     Log.e(TAG, "onFailure: ${t.message}")
+                    mainFragment?.showToast(t.message.toString())
                 }
             })
     }
 
     fun searchHeaderList(userName: String, passWord: String, id: String) {
         _isLoading.value = true
-        ApiConfig(userName,passWord).getApiServiceHeader()
+        ApiConfig(userName, passWord).getApiServiceHeader()
             .searchHeader(
                 "documentNo='$id'and salesTransaction=false and documentStatus='CO'"
             )
@@ -81,11 +85,14 @@ class ReleaseViewModel(var mainFragment: ReleaseFragment) : ViewModel() {
                     } else {
                         _isLoading.value = false
                         Log.e(TAG, "onFailure: ${response.message()}")
+                        mainFragment?.showToast(response.message())
                     }
                 }
 
                 override fun onFailure(call: Call<PurchaseOrderResponse>, t: Throwable) {
+                    _isLoading.value = false
                     Log.e(TAG, "onFailure: ${t.message}")
+                    mainFragment?.showToast(t.message.toString())
                 }
             })
     }

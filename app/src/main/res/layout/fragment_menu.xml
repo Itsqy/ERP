@@ -27,10 +27,11 @@
             android:id="@+id/iv_menu"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="96dp"
+
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/setting_logo"
+            app:layout_constraintEnd_toStartOf="@id/iv_masterdata"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/main_logo" />
 
@@ -54,6 +55,7 @@
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/master_data_logo"
             app:layout_constraintBottom_toBottomOf="@id/iv_menu"
+            app:layout_constraintEnd_toStartOf="@id/iv_procure"
             app:layout_constraintStart_toEndOf="@id/iv_menu"
             app:layout_constraintTop_toTopOf="@id/iv_menu" />
 
@@ -77,6 +79,7 @@
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/procurement_logo"
             app:layout_constraintBottom_toBottomOf="@id/iv_masterdata"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_masterdata"
             app:layout_constraintTop_toTopOf="@id/iv_masterdata" />
 
@@ -96,10 +99,10 @@
             android:id="@+id/iv_hr"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="17dp"
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/hr_logo"
+            app:layout_constraintEnd_toStartOf="@id/iv_warehouse"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_general" />
 
@@ -123,6 +126,7 @@
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/warehouse_logo"
             app:layout_constraintBottom_toBottomOf="@id/iv_hr"
+            app:layout_constraintEnd_toStartOf="@id/iv_production"
             app:layout_constraintStart_toEndOf="@id/iv_hr"
             app:layout_constraintTop_toTopOf="@id/iv_hr" />
 
@@ -146,6 +150,7 @@
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/production_logo"
             app:layout_constraintBottom_toBottomOf="@id/iv_warehouse"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_warehouse"
             app:layout_constraintTop_toTopOf="@id/iv_warehouse" />
 
@@ -165,10 +170,10 @@
             android:id="@+id/iv_mr_planning"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="17dp"
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/mr_planning_logo"
+            app:layout_constraintEnd_toStartOf="@id/iv_sales"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_hr" />
 
@@ -192,6 +197,7 @@
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/sales_management_logo"
             app:layout_constraintBottom_toBottomOf="@id/iv_mr_planning"
+            app:layout_constraintEnd_toStartOf="@id/iv_external_data"
             app:layout_constraintStart_toEndOf="@id/iv_mr_planning"
             app:layout_constraintTop_toTopOf="@id/iv_mr_planning" />
 
@@ -215,6 +221,7 @@
             android:background="@drawable/bg_menu_rounded"
             android:src="@drawable/externaldata_logo"
             app:layout_constraintBottom_toBottomOf="@id/iv_sales"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_sales"
             app:layout_constraintTop_toTopOf="@id/iv_sales" />
 

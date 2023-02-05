@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -139,6 +140,12 @@ class DraftFragment : Fragment() {
             rvRelease.adapter = adapterDraft
         }
 
+
+    }
+
+    fun showToast(msg: String) {
+
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 
     }
 
