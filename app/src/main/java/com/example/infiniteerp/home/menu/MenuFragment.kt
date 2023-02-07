@@ -22,6 +22,8 @@ class MenuFragment : Fragment() {
     ): View? {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         return binding.root
+
+        setRetainInstance(false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,6 +32,11 @@ class MenuFragment : Fragment() {
             val intent = Intent(activity, ApprovalActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

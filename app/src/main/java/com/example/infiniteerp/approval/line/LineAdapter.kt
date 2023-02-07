@@ -30,9 +30,9 @@ class LineAdapter(val dataHeader: List<ListOrderLine>, val context: Context) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.docNo.text = dataHeader?.get(position)?.lineNo
 
-        holder.bussinessPartner.text = dataHeader?.get(position)?.lineNetAmount
+        holder.bussinessPartner.text = dataHeader?.get(position)?.bussinesPartner
 
-        holder.totalNet.text = dataHeader?.get(position)?.product
+        holder.totalNet.text = dataHeader?.get(position)?.lineNetAmount
 
 
         holder.itemView.setOnClickListener {

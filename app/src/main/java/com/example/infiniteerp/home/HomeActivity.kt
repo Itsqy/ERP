@@ -3,6 +3,8 @@ package com.example.infiniteerp.home
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -15,7 +17,7 @@ import com.example.infiniteerp.home.profile.ProfileFragment
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-
+    lateinit var container: ViewGroup
     val fragMenu: Fragment = MenuFragment()
     val fragProfile: Fragment = ProfileFragment()
     val fm: FragmentManager = supportFragmentManager
@@ -33,6 +35,18 @@ class HomeActivity : AppCompatActivity() {
         setUpBottomNav()
 
     }
+
+    fun initUserInterface(): View? {
+
+        var view: View
+
+        if (container != null) {
+            container.removeAllViews()
+        }
+
+        return View(this)
+    }
+
 
     private fun setUpBottomNav() {
 
@@ -65,4 +79,6 @@ class HomeActivity : AppCompatActivity() {
         active = fragment
 
     }
+
+
 }
