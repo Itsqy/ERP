@@ -19,24 +19,26 @@
         tools:targetApi="30">
         <activity
             android:name=".home.HomeActivity"
-            android:exported="false"
-         android:recreateOnConfigChanges="mnc"
-            />
-<!--        <activity-->
-<!--            android:name=".approval.postapproval.PostModalActivtiy"-->
-<!--            android:exported="false" />-->
+            android:configChanges="orientation|screenSize"
+            android:exported="false" />
+        <!--        <activity-->
+        <!--            android:name=".approval.postapproval.PostModalActivtiy"-->
+        <!--            android:exported="false" />-->
         <activity
             android:name=".approval.line.DetailLineActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".approval.line.LineActivity"
-
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".approval.DetailApprovalActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".approval.ApprovalActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".forgotpass.NewPassActivity"
@@ -46,12 +48,14 @@
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
+            android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,5 +1,6 @@
 package com.example.infiniteerp.home
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -27,25 +28,50 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var menu: Menu
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         binding = ActivityHomeBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         supportActionBar?.hide()
-        setUpBottomNav()
 
-    }
-
-    fun initUserInterface(): View? {
-
-        var view: View
-
-        if (container != null) {
-            container.removeAllViews()
+        setButtomNavWithConfigChanges()
+//initialize for the first time when the app is opened
+        if (savedInstanceState == null) {
+            binding.btnNavView.selectedItemId = R.id.btn_home
         }
 
-        return View(this)
     }
+
+    fun setButtomNavWithConfigChanges() {
+        binding.btnNavView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.btn_home -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_container, MenuFragment())
+                        .commit()
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.btn_profile -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_container, ProfileFragment())
+                        .commit()
+                    return@setOnNavigationItemSelectedListener true
+                }
+                else -> return@setOnNavigationItemSelectedListener false
+            }
+        }
+
+
+    }
+
+//    override fun onConfigurationChanged(newConfig: Configuration) {
+//        super.onConfigurationChanged(newConfig)
+//
+//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//
+//
+//    }
 
 
     private fun setUpBottomNav() {

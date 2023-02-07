@@ -1,208 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.profile.ProfileFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb_approval"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:theme="@style/toolbarCustomStyle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="                               Profile" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/layout_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/tb_approval">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_approval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:theme="@style/toolbarCustomStyle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="                               Profile" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="117dp"
-            android:layout_height="115dp"
+        <LinearLayout
+            android:id="@+id/layout_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tb_approval">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="117dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/animeh" />
+
+            <ImageView
+                android:layout_width="156dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="37dp"
+                android:src="@drawable/erplogo" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/animeh" />
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Rifqi Syatria"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@id/layout_image" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/roboto_reguler"
+            android:text="Maospati, desa klagen, Magetan, Jawa Timur 63392"
+            android:textColor="@color/black"
+            android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="@id/tv_name"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
         <ImageView
-            android:layout_width="156dp"
-            android:layout_height="51dp"
-            android:layout_marginStart="43dp"
-            android:layout_marginTop="37dp"
-            android:src="@drawable/erplogo" />
-    </LinearLayout>
+            android:id="@+id/iv_acc"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="Rifqi Syatria"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@id/layout_image" />
+            android:layout_marginTop="34dp"
+            android:src="@drawable/account_circle_logo"
+            app:layout_constraintStart_toStartOf="@id/tv_address"
+            app:layout_constraintTop_toBottomOf="@id/tv_address" />
 
-    <TextView
-        android:id="@+id/tv_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/roboto_reguler"
-        android:text="Maospati, desa klagen, Magetan, Jawa Timur 63392"
-        android:textColor="@color/black"
-        android:textSize="13dp"
-        app:layout_constraintEnd_toEndOf="@id/tv_name"
-        app:layout_constraintStart_toStartOf="@id/tv_name"
-        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+        <TextView
+            android:id="@+id/tv_label_acc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Account"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_acc"
+            app:layout_constraintStart_toEndOf="@id/iv_acc"
+            app:layout_constraintTop_toTopOf="@id/iv_acc" />
 
-    <ImageView
-        android:id="@+id/iv_acc"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-
-        android:layout_marginTop="34dp"
-        android:src="@drawable/account_circle_logo"
-        app:layout_constraintStart_toStartOf="@id/tv_address"
-        app:layout_constraintTop_toBottomOf="@id/tv_address" />
-
-    <TextView
-        android:id="@+id/tv_label_acc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Account"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_acc"
-        app:layout_constraintStart_toEndOf="@id/iv_acc"
-        app:layout_constraintTop_toTopOf="@id/iv_acc" />
-
-    <TextView
-        android:id="@+id/tv_acc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_reguler"
-        android:text="example@gmail.com"
-        android:textColor="@color/black"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@id/tv_label_acc"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_acc" />
+        <TextView
+            android:id="@+id/tv_acc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_reguler"
+            android:text="example@gmail.com"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@id/tv_label_acc"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_acc" />
 
 
-    <ImageView
-        android:id="@+id/iv_client"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="34dp"
-        android:src="@drawable/client_logo"
-        app:layout_constraintStart_toStartOf="@id/iv_acc"
-        app:layout_constraintTop_toBottomOf="@id/iv_acc" />
+        <ImageView
+            android:id="@+id/iv_client"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="34dp"
+            android:src="@drawable/client_logo"
+            app:layout_constraintStart_toStartOf="@id/iv_acc"
+            app:layout_constraintTop_toBottomOf="@id/iv_acc" />
 
-    <TextView
-        android:id="@+id/tv_label_client"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Client"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_client"
-        app:layout_constraintStart_toEndOf="@id/iv_client"
-        app:layout_constraintTop_toTopOf="@id/iv_client" />
+        <TextView
+            android:id="@+id/tv_label_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Client"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_client"
+            app:layout_constraintStart_toEndOf="@id/iv_client"
+            app:layout_constraintTop_toTopOf="@id/iv_client" />
 
-    <TextView
-        android:id="@+id/tv_client"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/tv_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:fontFamily="@font/roboto_reguler"
-        android:text="example@gmail.com"
-        android:textColor="@color/black"
-        android:textSize="14dp"
+            android:fontFamily="@font/roboto_reguler"
+            android:text="example@gmail.com"
+            android:textColor="@color/black"
+            android:textSize="14dp"
 
-        app:layout_constraintStart_toStartOf="@id/tv_label_client"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_client" />
-
-
-    <ImageView
-        android:id="@+id/iv_role"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="34dp"
-        android:src="@drawable/role_logo"
-        app:layout_constraintStart_toStartOf="@id/iv_client"
-        app:layout_constraintTop_toBottomOf="@id/iv_client" />
-
-    <TextView
-        android:id="@+id/tv_label_role"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Role"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_role"
-        app:layout_constraintStart_toEndOf="@id/iv_role"
-        app:layout_constraintTop_toTopOf="@id/iv_role" />
-
-    <TextView
-        android:id="@+id/tv_role"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:fontFamily="@font/roboto_reguler"
-        android:text="EXAMPLE SYSTEM Admin"
-        android:textColor="@color/black"
-        android:textSize="14dp"
-
-        app:layout_constraintStart_toStartOf="@id/tv_label_role"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_role" />
-
-    <ImageView
-        android:id="@+id/iv_organisation"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-
-        android:layout_marginTop="34dp"
-        android:src="@drawable/organisation_logo"
-        app:layout_constraintStart_toStartOf="@id/iv_role"
-        app:layout_constraintTop_toBottomOf="@id/iv_role" />
-
-    <TextView
-        android:id="@+id/tv_label_org"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Organization"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_organisation"
-        app:layout_constraintStart_toEndOf="@id/iv_organisation"
-        app:layout_constraintTop_toTopOf="@id/iv_organisation" />
-
-    <TextView
-        android:id="@+id/tv_org"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_reguler"
-        android:text="example@gmail.com"
-        android:textColor="@color/black"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@id/tv_label_org"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_org" />
+            app:layout_constraintStart_toStartOf="@id/tv_label_client"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_client" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_role"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="34dp"
+            android:src="@drawable/role_logo"
+            app:layout_constraintStart_toStartOf="@id/iv_client"
+            app:layout_constraintTop_toBottomOf="@id/iv_client" />
+
+        <TextView
+            android:id="@+id/tv_label_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Role"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_role"
+            app:layout_constraintStart_toEndOf="@id/iv_role"
+            app:layout_constraintTop_toTopOf="@id/iv_role" />
+
+        <TextView
+            android:id="@+id/tv_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/roboto_reguler"
+            android:text="EXAMPLE SYSTEM Admin"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+
+            app:layout_constraintStart_toStartOf="@id/tv_label_role"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_role" />
+
+        <ImageView
+            android:id="@+id/iv_organisation"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+
+            android:layout_marginTop="34dp"
+            android:src="@drawable/organisation_logo"
+            app:layout_constraintStart_toStartOf="@id/iv_role"
+            app:layout_constraintTop_toBottomOf="@id/iv_role" />
+
+        <TextView
+            android:id="@+id/tv_label_org"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Organization"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_organisation"
+            app:layout_constraintStart_toEndOf="@id/iv_organisation"
+            app:layout_constraintTop_toTopOf="@id/iv_organisation" />
+
+        <TextView
+            android:id="@+id/tv_org"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_reguler"
+            android:text="example@gmail.com"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@id/tv_label_org"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_org" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
